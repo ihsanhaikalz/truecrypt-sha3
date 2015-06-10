@@ -24,7 +24,7 @@ namespace TrueCrypt
 		l.push_back (shared_ptr <Hash> (new Sha512 ()));
 		l.push_back (shared_ptr <Hash> (new Whirlpool ()));
 		l.push_back (shared_ptr <Hash> (new Sha1 ()));
-
+		l.push_back (shared_ptr <Hash> (new Sha3 ()));
 		return l;
 	}
 

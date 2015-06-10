@@ -2,8 +2,7 @@
 #ifndef SHA3_H
 #define SHA3_H
 
-#include "Common/Tcdefs.h"
-#include "Common/Endian.h"
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -52,7 +51,7 @@ void Sha3Final(sha3_ctx *ctx, unsigned char* result);
 //void rhash_keccak_final(sha3_ctx *ctx, unsigned char* result);
 //#endif
 
-#ifdef __cplusplus
+#if defined(__cplusplus)
 } /* extern "C" */
 #endif /* __cplusplus */
 
