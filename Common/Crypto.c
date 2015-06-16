@@ -104,10 +104,11 @@ static Hash Hashes[] =
 	{ RIPEMD160,	"RIPEMD-160",	FALSE,			TRUE },
 #ifndef TC_WINDOWS_BOOT
 	{ SHA512,		"SHA-512",		FALSE,			FALSE },
+	{ SHA3,		"SHA-3",		FALSE,			FALSE },
 	{ WHIRLPOOL,	"Whirlpool",	FALSE,			FALSE },
 	{ SHA1,			"SHA-1",		TRUE,			FALSE },	// Deprecated/legacy
 #endif
-	{ 0, 0, 0 }
+	{ 0, 0, 0, 0 }
 };
 
 /* Return values: 0 = success, ERR_CIPHER_INIT_FAILURE (fatal), ERR_CIPHER_INIT_WEAK_KEY (non-fatal) */

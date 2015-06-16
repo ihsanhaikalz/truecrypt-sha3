@@ -209,6 +209,7 @@ BOOL Randmix ()
 		WHIRLPOOL_CTX	wctx;
 		RMD160_CTX		rctx;
 		sha512_ctx		sctx;
+		sha3_ctx		sha3_ctx;
 		int poolIndex, digestIndex, digestSize;
 
 		switch (HashFunction)
@@ -223,6 +224,10 @@ BOOL Randmix ()
 
 		case WHIRLPOOL:
 			digestSize = WHIRLPOOL_DIGESTSIZE;
+			break;
+
+		case SHA3:
+			digestSize = SHA3_DIGESTSIZE;
 			break;
 
 		default:
@@ -255,6 +260,12 @@ BOOL Randmix ()
 				WHIRLPOOL_finalize (&wctx, hashOutputBuffer);
 				break;
 
+			case SHA3:
+				Sha3Init (&sha3_ctx);
+				Sha3Update (&sha3_ctx, pRandPool, RNG_POOL_SIZE);
+				Sha3Final (&sctx, hashOutputBuffer);
+				break;
+
 			default:		
 				// Unknown/wrong ID
 				TC_THROW_FATAL_EXCEPTION;
@@ -281,6 +292,10 @@ BOOL Randmix ()
 
 		case WHIRLPOOL:
 			burn (&wctx, sizeof(wctx));		
+			break;
+
+		case SHA512:
+			burn (&sha3_ctx, sizeof(sha3_ctx));
 			break;
 
 		default:		

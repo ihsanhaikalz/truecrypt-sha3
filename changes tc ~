@@ -1,0 +1,10 @@
+Change 15 June
+
+Implement to Crypto/Sources, Common/Crypto.c + Crypto.h + Random.c + Random.h
+
+
+Change 10 June
+
+Add sha3.c and sha3.h to Crypto folder
+Implement to Volume/Hash.cpp and Hash.h 
+Error in compiling

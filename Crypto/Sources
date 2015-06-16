@@ -20,4 +20,5 @@ SOURCES = \
 	Sha1.c \
 	Sha2.c \
 	Twofish.c \
-	Whirlpool.c
+	Whirlpool.c\
+	Sha3.c

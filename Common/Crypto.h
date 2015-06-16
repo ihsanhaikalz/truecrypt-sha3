@@ -53,6 +53,7 @@ enum
 {
 	RIPEMD160 = FIRST_PRF_ID,
 #ifndef TC_WINDOWS_BOOT
+	SHA3,
 	SHA512,
 	WHIRLPOOL,
 	SHA1,				// Deprecated/legacy
@@ -68,6 +69,9 @@ enum
 
 #define SHA1_BLOCKSIZE			64	
 #define SHA1_DIGESTSIZE			20
+
+#define SHA3_BLOCKSIZE			136
+#define SHA3_DIGESTSIZE			32
 
 #define SHA512_BLOCKSIZE		128
 #define SHA512_DIGESTSIZE		64
@@ -194,6 +198,7 @@ typedef struct
 #ifndef TC_WINDOWS_BOOT
 #	include "Sha1.h"
 #	include "Sha2.h"
+#	include "Sha3.h"
 #	include "Whirlpool.h"
 #endif
 
