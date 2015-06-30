@@ -107,6 +107,23 @@ namespace TrueCrypt
 		Pkcs5HmacSha512 &operator= (const Pkcs5HmacSha512 &);
 	};
 
+
+	class Pkcs5HmacSha3 : public Pkcs5Kdf
+		{
+		public:
+			Pkcs5HmacSha3 () { }
+			virtual ~Pkcs5HmacSha3 () { }
+
+			virtual void DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const;
+			virtual shared_ptr <Hash> GetHash () const { return shared_ptr <Hash> (new Sha3); }
+			virtual int GetIterationCount () const { return 100000; }
+			virtual wstring GetName () const { return L"HMAC-SHA-3"; }
+
+		private:
+			Pkcs5HmacSha3 (const Pkcs5HmacSha3 &);
+			Pkcs5HmacSha3 &operator= (const Pkcs5HmacSha3 &);
+		};
+
 	class Pkcs5HmacWhirlpool : public Pkcs5Kdf
 	{
 	public:

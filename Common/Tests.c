@@ -1621,6 +1621,14 @@ BOOL test_hmac_sha1 ()
 	return (nTestsPerformed == 3);
 }
 
+BOOL test_hmac_sha3 ()
+{
+
+
+	return TRUE;
+}
+
+
 BOOL test_hmac_ripemd160 ()
 {
 	int nTestsPerformed = 0;
@@ -1657,6 +1665,9 @@ BOOL test_pkcs5 ()
 	/* HMAC-SHA-512 tests */
 	if (!test_hmac_sha512())
 		return FALSE;
+
+	if (!test_hmac_sha3())
+			return FALSE;
 
 	/* HMAC-SHA-1 tests (deprecated/legacy)  */
 	if (test_hmac_sha1() == FALSE)

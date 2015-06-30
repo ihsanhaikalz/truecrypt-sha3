@@ -17,6 +17,7 @@
 #include "Sha1.h"
 #include "Sha2.h"
 #include "Whirlpool.h"
+#include "Sha3.h"
 #endif
 #include "Pkcs5.h"
 #include "Crypto.h"
@@ -168,6 +169,148 @@ void derive_key_sha512 (char *pwd, int pwd_len, char *salt, int salt_len, int it
 
 	/* last block */
 	derive_u_sha512 (pwd, pwd_len, salt, salt_len, iterations, u, b);
+	memcpy (dk, u, r);
+
+
+	/* Prevent possible leaks. */
+	burn (u, sizeof(u));
+}
+
+
+
+void hmac_sha3
+(
+	  char *k,		/* secret key */
+	  int lk,		/* length of the key in bytes */
+	  char *d,		/* data */
+	  int ld,		/* length of data in bytes */
+	  char *out,		/* output buffer, at least "t" bytes */
+	  int t
+)
+{
+	sha3_ctx ictx, octx;
+	char isha[SHA3_DIGESTSIZE], osha[SHA3_DIGESTSIZE];
+	char key[SHA3_DIGESTSIZE];
+	char buf[SHA3_BLOCKSIZE];
+	int i;
+
+    /* If the key is longer than the hash algorithm block size,
+	   let key = sha3(key), as per HMAC specifications. */
+	if (lk > SHA3_BLOCKSIZE)
+	{
+		sha3_ctx tctx;
+
+		Sha3Init (&tctx);
+		Sha3Update (&tctx,  (unsigned char *) k, lk );
+		Sha3Final (&tctx, (unsigned char *) key );
+
+		k = key;
+		lk = SHA3_DIGESTSIZE;
+
+		burn (&tctx, sizeof(tctx));		// Prevent leaks
+	}
+
+	/**** Inner Digest ****/
+
+	Sha3Init (&ictx);
+
+	/* Pad the key for inner digest */
+	for (i = 0; i < lk; ++i)
+		buf[i] = (char) (k[i] ^ 0x36);
+	for (i = lk; i < SHA3_BLOCKSIZE; ++i)
+		buf[i] = 0x36;
+
+	Sha3Update (&ictx, (unsigned char *) buf, SHA3_BLOCKSIZE );
+	Sha3Update (&ictx, (unsigned char *) d, ld );
+
+	Sha3Final ( &ictx, (unsigned char *) isha);
+
+	/**** Outer Digest ****/
+
+	Sha3Init (&octx);
+
+	for (i = 0; i < lk; ++i)
+		buf[i] = (char) (k[i] ^ 0x5C);
+	for (i = lk; i < SHA3_BLOCKSIZE; ++i)
+		buf[i] = 0x5C;
+
+	Sha3Update ( &octx, (unsigned char *) buf, SHA512_BLOCKSIZE);
+	Sha3Update ( &octx, (unsigned char *) isha, SHA512_DIGESTSIZE);
+
+	Sha3Final (&octx, (unsigned char *) osha );
+
+	/* truncate and print the results */
+	t = t > SHA3_DIGESTSIZE ? SHA3_DIGESTSIZE : t;
+	hmac_truncate (osha, out, t);
+
+	/* Prevent leaks */
+	burn (&ictx, sizeof(ictx));
+	burn (&octx, sizeof(octx));
+	burn (isha, sizeof(isha));
+	burn (osha, sizeof(osha));
+	burn (buf, sizeof(buf));
+	burn (key, sizeof(key));
+}
+
+
+void derive_u_sha3 (char *pwd, int pwd_len, char *salt, int salt_len, int iterations, char *u, int b)
+{
+	char j[SHA3_DIGESTSIZE], k[SHA3_DIGESTSIZE];
+	char init[128];
+	char counter[4];
+	int c, i;
+
+	/* iteration 1 */
+	memset (counter, 0, 4);
+	counter[3] = (char) b;
+	memcpy (init, salt, salt_len);	/* salt */
+	memcpy (&init[salt_len], counter, 4);	/* big-endian block number */
+	hmac_sha512 (pwd, pwd_len, init, salt_len + 4, j, SHA3_DIGESTSIZE);
+	memcpy (u, j, SHA3_DIGESTSIZE);
+
+	/* remaining iterations */
+	for (c = 1; c < iterations; c++)
+	{
+		hmac_sha3 (pwd, pwd_len, j, SHA3_DIGESTSIZE, k, SHA3_DIGESTSIZE);
+		for (i = 0; i < SHA3_DIGESTSIZE; i++)
+		{
+			u[i] ^= k[i];
+			j[i] = k[i];
+		}
+	}
+
+	/* Prevent possible leaks. */
+	burn (j, sizeof(j));
+	burn (k, sizeof(k));
+}
+
+
+void derive_key_sha512 (char *pwd, int pwd_len, char *salt, int salt_len, int iterations, char *dk, int dklen)
+{
+	char u[SHA3_DIGESTSIZE];
+	int b, l, r;
+
+	if (dklen % SHA3_DIGESTSIZE)
+	{
+		l = 1 + dklen / SHA3_DIGESTSIZE;
+	}
+	else
+	{
+		l = dklen / SHA3_DIGESTSIZE;
+	}
+
+	r = dklen - (l - 1) * SHA3_DIGESTSIZE;
+
+	/* first l - 1 blocks */
+	for (b = 1; b < l; b++)
+	{
+		derive_u_sha3 (pwd, pwd_len, salt, salt_len, iterations, u, b);
+		memcpy (dk, u, SHA3_DIGESTSIZE);
+		dk += SHA3_DIGESTSIZE;
+	}
+
+	/* last block */
+	derive_u_sha3 (pwd, pwd_len, salt, salt_len, iterations, u, b);
 	memcpy (dk, u, r);
 
 

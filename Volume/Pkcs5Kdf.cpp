@@ -52,6 +52,7 @@ namespace TrueCrypt
 		
 		l.push_back (shared_ptr <Pkcs5Kdf> (new Pkcs5HmacRipemd160 ()));
 		l.push_back (shared_ptr <Pkcs5Kdf> (new Pkcs5HmacSha512 ()));
+		l.push_back (shared_ptr <Pkcs5Kdf> (new Pkcs5HmacSha3 ()));
 		l.push_back (shared_ptr <Pkcs5Kdf> (new Pkcs5HmacWhirlpool ()));
 		l.push_back (shared_ptr <Pkcs5Kdf> (new Pkcs5HmacSha1 ()));
 
@@ -81,6 +82,12 @@ namespace TrueCrypt
 		ValidateParameters (key, password, salt, iterationCount);
 		derive_key_sha1 ((char *) password.DataPtr(), (int) password.Size(), (char *) salt.Get(), (int) salt.Size(), iterationCount, (char *) key.Get(), (int) key.Size());
 	}
+
+	void Pkcs5HmacSha3::DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const
+		{
+			ValidateParameters (key, password, salt, iterationCount);
+			derive_key_sha3 ((char *) password.DataPtr(), (int) password.Size(), (char *) salt.Get(), (int) salt.Size(), iterationCount, (char *) key.Get(), (int) key.Size());
+		}
 
 	void Pkcs5HmacSha512::DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const
 	{
