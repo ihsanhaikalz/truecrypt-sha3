@@ -4324,6 +4324,7 @@ static BOOL PerformBenchmark(HWND hwndDlg)
 		RMD160_CTX		rctx;
 		sha1_ctx		sctx;
 		sha512_ctx		s2ctx;
+		sha3_ctx		s3ctx;
 		int hid;
 
 		for (hid = FIRST_PRF_ID; hid <= LAST_PRF_ID; hid++) 
@@ -4343,6 +4344,12 @@ static BOOL PerformBenchmark(HWND hwndDlg)
 				sha512_begin (&s2ctx);
 				sha512_hash (lpTestBuffer, benchmarkBufferSize, &s2ctx);
 				sha512_end ((unsigned char *) digest, &s2ctx);
+				break;
+
+			case SHA3:
+				Sha3Init (&s3ctx);
+				Sha3Update (&s3ctx, lpTestBuffer, benchmarkBufferSize);
+				Sha3Final ( &s3ctx, (unsigned char *) digest);
 				break;
 
 			case RIPEMD160:
@@ -4411,6 +4418,11 @@ static BOOL PerformBenchmark(HWND hwndDlg)
 				case WHIRLPOOL:
 					/* PKCS-5 test with HMAC-Whirlpool used as the PRF */
 					derive_key_whirlpool ("passphrase-1234567890", 21, tmp_salt, 64, get_pkcs5_iteration_count(thid, FALSE), dk, MASTER_KEYDATA_SIZE);
+					break;
+
+				case SHA3:
+					/* PKCS-5 test with HMAC-SHA3 used as the PRF */
+					derive_key_sha3 ("passphrase-1234567890", 21, tmp_salt, 64, get_pkcs5_iteration_count(thid, FALSE), dk, MASTER_KEYDATA_SIZE);
 					break;
 				}
 			}

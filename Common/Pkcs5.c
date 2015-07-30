@@ -234,8 +234,8 @@ void hmac_sha3
 	for (i = lk; i < SHA3_BLOCKSIZE; ++i)
 		buf[i] = 0x5C;
 
-	Sha3Update ( &octx, (unsigned char *) buf, SHA512_BLOCKSIZE);
-	Sha3Update ( &octx, (unsigned char *) isha, SHA512_DIGESTSIZE);
+	Sha3Update ( &octx, (unsigned char *) buf, SHA3_BLOCKSIZE);
+	Sha3Update ( &octx, (unsigned char *) isha, SHA3_DIGESTSIZE);
 
 	Sha3Final (&octx, (unsigned char *) osha );
 
@@ -265,7 +265,7 @@ void derive_u_sha3 (char *pwd, int pwd_len, char *salt, int salt_len, int iterat
 	counter[3] = (char) b;
 	memcpy (init, salt, salt_len);	/* salt */
 	memcpy (&init[salt_len], counter, 4);	/* big-endian block number */
-	hmac_sha512 (pwd, pwd_len, init, salt_len + 4, j, SHA3_DIGESTSIZE);
+	hmac_sha3 (pwd, pwd_len, init, salt_len + 4, j, SHA3_DIGESTSIZE);
 	memcpy (u, j, SHA3_DIGESTSIZE);
 
 	/* remaining iterations */
@@ -285,7 +285,7 @@ void derive_u_sha3 (char *pwd, int pwd_len, char *salt, int salt_len, int iterat
 }
 
 
-void derive_key_sha512 (char *pwd, int pwd_len, char *salt, int salt_len, int iterations, char *dk, int dklen)
+void derive_key_sha3 (char *pwd, int pwd_len, char *salt, int salt_len, int iterations, char *dk, int dklen)
 {
 	char u[SHA3_DIGESTSIZE];
 	int b, l, r;
@@ -748,6 +748,9 @@ char *get_pkcs5_prf_name (int pkcs5_prf_id)
 	case RIPEMD160:	
 		return "HMAC-RIPEMD-160";
 
+	case SHA3:
+		return "HMAC-SHA-3";
+
 	case WHIRLPOOL:	
 		return "HMAC-Whirlpool";
 
@@ -769,6 +772,9 @@ int get_pkcs5_iteration_count (int pkcs5_prf_id, BOOL bBoot)
 #ifndef TC_WINDOWS_BOOT
 
 	case SHA512:	
+		return 100000;
+
+	case SHA3:
 		return 100000;
 
 	case SHA1:		// Deprecated/legacy		

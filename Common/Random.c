@@ -263,7 +263,7 @@ BOOL Randmix ()
 			case SHA3:
 				Sha3Init (&sha3_ctx);
 				Sha3Update (&sha3_ctx, pRandPool, RNG_POOL_SIZE);
-				Sha3Final (&sctx, hashOutputBuffer);
+				Sha3Final (&sha3_ctx, hashOutputBuffer);
 				break;
 
 			default:		
@@ -294,7 +294,7 @@ BOOL Randmix ()
 			burn (&wctx, sizeof(wctx));		
 			break;
 
-		case SHA512:
+		case SHA3:
 			burn (&sha3_ctx, sizeof(sha3_ctx));
 			break;
 

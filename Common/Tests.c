@@ -1658,6 +1658,8 @@ BOOL test_hmac_whirlpool ()
 	return TRUE;
 }
 
+
+
 BOOL test_pkcs5 ()
 {
 	char dk[144];
@@ -1666,8 +1668,7 @@ BOOL test_pkcs5 ()
 	if (!test_hmac_sha512())
 		return FALSE;
 
-	if (!test_hmac_sha3())
-			return FALSE;
+
 
 	/* HMAC-SHA-1 tests (deprecated/legacy)  */
 	if (test_hmac_sha1() == FALSE)
@@ -1679,6 +1680,9 @@ BOOL test_pkcs5 ()
 
 	/* HMAC-Whirlpool tests */
 	if (test_hmac_whirlpool() == FALSE)
+		return FALSE;
+
+	if (test_hmac_sha3() == FALSE)
 		return FALSE;
 
 	/* PKCS-5 test 1 with HMAC-SHA-512 used as the PRF */

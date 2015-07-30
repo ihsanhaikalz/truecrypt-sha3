@@ -139,26 +139,26 @@ namespace TrueCrypt
 
 
 	Sha3::Sha3 ()
-		{
-			Context.Allocate (sizeof (sha3_ctx));
-			Init();
-		}
+	{
+		Context.Allocate (sizeof (sha3_ctx));
+		Init();
+	}
 
-		void Sha3::GetDigest (const BufferPtr &buffer)
-		{
-			if_debug (ValidateDigestParameters (buffer));
-			Sha3Final((sha3_ctx *) Context.Ptr(), buffer);
-		}
+	void Sha3::GetDigest (const BufferPtr &buffer)
+	{
+		if_debug (ValidateDigestParameters (buffer));
+		Sha3Final((sha3_ctx *) Context.Ptr(), buffer);
+	}
 
-		void Sha3::Init ()
-		{
-			Sha3Init ((sha3_ctx *) Context.Ptr());
-		}
+	void Sha3::Init ()
+	{
+		Sha3Init ((sha3_ctx *) Context.Ptr());
+	}
 
-		void Sha3::ProcessData (const ConstBufferPtr &data)
-		{
-			if_debug (ValidateDataParameters (data));
-			Sha3Update ((sha3_ctx *) Context.Ptr(),data.Get(), (int) data.Size());
-		}
+	void Sha3::ProcessData (const ConstBufferPtr &data)
+	{
+		if_debug (ValidateDataParameters (data));
+		Sha3Update ((sha3_ctx *) Context.Ptr(),data.Get(), (int) data.Size());
+	}
 
 }
