@@ -233,6 +233,7 @@ LanguageStrings.o: LanguageStrings.cpp System.h SystemPrecompiled.h \
  /home/ihsan/truecrypt-7.1a-source/Crypto/Sha1.h \
  /home/ihsan/truecrypt-7.1a-source/Crypto/Sha2.h \
  /home/ihsan/truecrypt-7.1a-source/Common/Endian.h \
+ /home/ihsan/truecrypt-7.1a-source/Crypto/Sha3.h \
  /home/ihsan/truecrypt-7.1a-source/Crypto/Whirlpool.h \
  /home/ihsan/truecrypt-7.1a-source/Common/GfMul.h \
  /home/ihsan/truecrypt-7.1a-source/Common/Password.h \

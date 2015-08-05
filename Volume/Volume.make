@@ -48,6 +48,7 @@ OBJS += ../Crypto/Rmd160.o
 OBJS += ../Crypto/Serpent.o
 OBJS += ../Crypto/Sha1.o
 OBJS += ../Crypto/Sha2.o
+OBJS += ../Crypto/Sha3.o
 OBJS += ../Crypto/Twofish.o
 OBJS += ../Crypto/Whirlpool.o
 

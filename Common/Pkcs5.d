@@ -4,7 +4,8 @@
  /home/ihsan/truecrypt-7.1a-source/Crypto/Sha1.h \
  /home/ihsan/truecrypt-7.1a-source/Crypto/Sha2.h \
  /home/ihsan/truecrypt-7.1a-source/Common/Endian.h \
- /home/ihsan/truecrypt-7.1a-source/Crypto/Whirlpool.h ../Common/Pkcs5.h \
+ /home/ihsan/truecrypt-7.1a-source/Crypto/Whirlpool.h \
+ /home/ihsan/truecrypt-7.1a-source/Crypto/Sha3.h ../Common/Pkcs5.h \
  ../Common/Crypto.h /home/ihsan/truecrypt-7.1a-source/Crypto/Aes.h \
  /home/ihsan/truecrypt-7.1a-source/Crypto/Aes_hw_cpu.h \
  /home/ihsan/truecrypt-7.1a-source/Crypto/Blowfish.h \
