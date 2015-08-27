@@ -877,8 +877,8 @@ namespace TrueCrypt
 		if (memcmp (derivedKey.Ptr(), "\x5c\x75\xce\xf0", 4) != 0)
 			throw TestFailed (SRC_POS);
 
-		//Pkcs5HmacSha3 pkcs5HmacSha3;
-		//pkcs5HmacSha3.DeriveKey (derivedKey, password, salt, 5);
+		Pkcs5HmacSha3 pkcs5HmacSha3;
+		pkcs5HmacSha3.DeriveKey (derivedKey, password, salt, 5);
 
 		Pkcs5HmacSha512 pkcs5HmacSha512;
 		pkcs5HmacSha512.DeriveKey (derivedKey, password, salt, 5);

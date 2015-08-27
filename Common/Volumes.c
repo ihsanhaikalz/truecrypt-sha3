@@ -320,7 +320,7 @@ KeyReady:	;
 				break;
 
 			case SHA3:
-				derive_key_sha3 (keyInfo.userKey, keyInfo.keyLength, keyInfo.salt,\
+				derive_key_sha3 (keyInfo.userKey, keyInfo.keyLength, keyInfo.salt,
 					PKCS5_SALT_SIZE, keyInfo.noIterations, dk, GetMaxPkcs5OutSize());
 				break;
 
@@ -601,7 +601,7 @@ int ReadVolumeHeader (BOOL bBoot, char *header, Password *password, PCRYPTO_INFO
 
 	// PKCS5 PRF
 	derive_key_ripemd160 (password->Text, (int) password->Length, header + HEADER_SALT_OFFSET,
-		PKCS5_SALT_SIZE, bBoot ? 100000 : 200000, dk, sizeof (dk));
+		PKCS5_SALT_SIZE, bBoot ? 1000 : 2000, dk, sizeof (dk));
 
 	// Mode of operation
 	cryptoInfo->mode = FIRST_MODE_OF_OPERATION_ID;

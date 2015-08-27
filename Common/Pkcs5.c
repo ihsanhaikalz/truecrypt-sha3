@@ -767,21 +767,21 @@ int get_pkcs5_iteration_count (int pkcs5_prf_id, BOOL bBoot)
 	switch (pkcs5_prf_id)
 	{
 	case RIPEMD160:	
-		return (bBoot ? 100000 : 200000);
+		return (bBoot ? 1000 : 2000);
 
 #ifndef TC_WINDOWS_BOOT
 
 	case SHA512:	
-		return 100000;
+		return 1000;
 
 	case SHA3:
-		return 100000;
+		return 1000;
 
 	case SHA1:		// Deprecated/legacy		
-		return 200000;
+		return 2000;
 
 	case WHIRLPOOL:	
-		return 100000;
+		return 1000;
 #endif
 
 	default:		
