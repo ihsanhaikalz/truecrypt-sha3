@@ -1,18 +1,18 @@
 Unix/Pipe.o: Unix/Pipe.cpp Unix/Pipe.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/PlatformBase.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SystemLog.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/StringConverter.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/PlatformBase.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SystemException.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Exception.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Serializable.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/ForEach.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Serializer.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Buffer.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Memory.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SharedPtr.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SharedVal.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Mutex.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Stream.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SerializerFactory.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/StringConverter.h
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/PlatformBase.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SystemLog.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/StringConverter.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/PlatformBase.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SystemException.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Exception.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Serializable.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/ForEach.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Serializer.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Buffer.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Memory.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SharedPtr.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SharedVal.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Mutex.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Stream.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SerializerFactory.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/StringConverter.h

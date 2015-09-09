@@ -1,5 +1,5 @@
 Unix/SystemLog.o: Unix/SystemLog.cpp \
- /home/ihsan/truecrypt-7.1a-source/Platform/SystemLog.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/PlatformBase.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/StringConverter.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/PlatformBase.h
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SystemLog.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/PlatformBase.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/StringConverter.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/PlatformBase.h

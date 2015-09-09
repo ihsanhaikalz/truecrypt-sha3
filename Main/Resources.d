@@ -9,6 +9,7 @@ Resources.o: Resources.cpp System.h SystemPrecompiled.h \
  /usr/local/include/wx-2.8/wx/dlimpexp.h \
  /usr/local/include/wx-2.8/wx/debug.h \
  /usr/local/include/wx-2.8/wx/wxchar.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Crypto/string.h \
  /usr/local/include/wx-2.8/wx/object.h \
  /usr/local/include/wx-2.8/wx/memory.h \
  /usr/local/include/wx-2.8/wx/string.h \
@@ -188,38 +189,39 @@ Resources.o: Resources.cpp System.h SystemPrecompiled.h \
  /usr/local/include/wx-2.8/wx/taskbar.h \
  /usr/local/include/wx-2.8/wx/unix/taskbarx11.h \
  /usr/local/include/wx-2.8/wx/valgen.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Platform.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/PlatformBase.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SystemLog.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/PlatformBase.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/StringConverter.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Buffer.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Memory.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Exception.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Serializable.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/ForEach.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Serializer.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SharedPtr.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SharedVal.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Mutex.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Stream.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SerializerFactory.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/StringConverter.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Directory.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/FilesystemPath.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/User.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Event.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/File.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SystemException.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Finally.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Functor.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/Thread.h \
- /home/ihsan/truecrypt-7.1a-source/Platform/SyncEvent.h Resources.h \
- /home/ihsan/truecrypt-7.1a-source/Common/Language.xml.h \
- /home/ihsan/truecrypt-7.1a-source/License.txt.h \
- /home/ihsan/truecrypt-7.1a-source/Mount/Drive_icon_96dpi.bmp.h \
- /home/ihsan/truecrypt-7.1a-source/Mount/Drive_icon_mask_96dpi.bmp.h \
- /home/ihsan/truecrypt-7.1a-source/Mount/Logo_96dpi.bmp.h \
- /home/ihsan/truecrypt-7.1a-source/Common/Textual_logo_96dpi.bmp.h \
- /home/ihsan/truecrypt-7.1a-source/Resources/Icons/TrueCrypt-16x16.xpm \
- /home/ihsan/truecrypt-7.1a-source/Format/TrueCrypt_Wizard.bmp.h
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Platform.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/PlatformBase.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SystemLog.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/PlatformBase.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/StringConverter.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Buffer.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Memory.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Exception.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Serializable.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/ForEach.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Serializer.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SharedPtr.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SharedVal.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Mutex.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Stream.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SerializerFactory.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/StringConverter.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Directory.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/FilesystemPath.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/User.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Event.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/File.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SystemException.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Finally.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Functor.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/Thread.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Platform/SyncEvent.h \
+ Resources.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Common/Language.xml.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/License.txt.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Mount/Drive_icon_96dpi.bmp.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Mount/Drive_icon_mask_96dpi.bmp.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Mount/Logo_96dpi.bmp.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Common/Textual_logo_96dpi.bmp.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Resources/Icons/TrueCrypt-16x16.xpm \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Format/TrueCrypt_Wizard.bmp.h

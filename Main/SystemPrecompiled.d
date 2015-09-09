@@ -9,6 +9,7 @@ SystemPrecompiled.o: SystemPrecompiled.h \
  /usr/local/include/wx-2.8/wx/dlimpexp.h \
  /usr/local/include/wx-2.8/wx/debug.h \
  /usr/local/include/wx-2.8/wx/wxchar.h \
+ /home/ihsan/Downloads/truecrypt-sha3-master/Crypto/string.h \
  /usr/local/include/wx-2.8/wx/object.h \
  /usr/local/include/wx-2.8/wx/memory.h \
  /usr/local/include/wx-2.8/wx/string.h \

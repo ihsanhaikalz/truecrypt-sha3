@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(truecrypt_7_1a_source)
+project(truecrypt_sha3_master)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
@@ -41,8 +41,11 @@ set(SOURCE_FILES
     Common/Combo.c
     Common/Combo.h
     Common/Common.h
+    Common/Common.rc
     Common/Crc.c
+    Common/Crc.d
     Common/Crc.h
+    Common/Crc.o
     Common/Crypto.c
     Common/Crypto.h
     Common/Dictionary.c
@@ -52,25 +55,33 @@ set(SOURCE_FILES
     Common/EncryptionThreadPool.c
     Common/EncryptionThreadPool.h
     Common/Endian.c
+    Common/Endian.d
     Common/Endian.h
+    Common/Endian.o
     Common/Exception.h
     Common/Fat.c
     Common/Fat.h
     Common/Format.c
     Common/Format.h
     Common/GfMul.c
+    Common/GfMul.d
     Common/GfMul.h
+    Common/GfMul.o
     Common/Inflate.c
     Common/Inflate.h
     Common/Keyfiles.c
     Common/Keyfiles.h
     Common/Language.c
     Common/Language.h
+    Common/Language.xml
     Common/Language.xml.h
+    Common/Makefile
     Common/Password.c
     Common/Password.h
     Common/Pkcs5.c
+    Common/Pkcs5.d
     Common/Pkcs5.h
+    Common/Pkcs5.o
     Common/Progress.c
     Common/Progress.h
     Common/Random.c
@@ -79,11 +90,20 @@ set(SOURCE_FILES
     Common/Registry.h
     Common/Resource.h
     Common/SecurityToken.cpp
+    Common/SecurityToken.d
     Common/SecurityToken.h
+    Common/SecurityToken.o
+    Common/Sources
     Common/Tcdefs.h
     Common/Tests.c
     Common/Tests.h
+    Common/Textual_logo_288dpi.bmp
+    Common/Textual_logo_96dpi.bmp
     Common/Textual_logo_96dpi.bmp.h
+    Common/Textual_logo_background.bmp
+    Common/TrueCrypt.ico
+    Common/TrueCrypt_mounted.ico
+    Common/TrueCrypt_Volume.ico
     Common/Volumes.c
     Common/Volumes.h
     Common/Wipe.c
@@ -395,4 +415,4 @@ set(SOURCE_FILES
     Volume/VolumeSlot.h
     License.txt.h)
 
-add_executable(truecrypt_7_1a_source ${SOURCE_FILES})
+add_executable(truecrypt_sha3_master ${SOURCE_FILES})
