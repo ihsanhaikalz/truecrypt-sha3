@@ -1,9 +1,30 @@
-/* sha3.c - an implementation of Secure Hash Algorithm 3 (Keccak).
- * based on the
- * The Keccak SHA-3 submission. Submission to NIST (Round 3), 2011
- * by Guido Bertoni, Joan Daemen, Michaël Peeters and Gilles Van Assche
+/* sha3.c - An implementation of Secure Hash Algorithm 3 in TrueCrypt
+ * based on the works of Aleksey Kravchenko from Recursive Hasher
+ * (RHash), which is based on The Keccak SHA-3 submission.
+ * Submission to NIST (Round 3), 2011 by Guido Bertoni, Joan Daemen,
+ * Michaël Peeters and Gilles Van Assche
  *
- * Copyright: 2013 Aleksey Kravchenko <rhash.admin@gmail.com>
+ * This source code has been integrated and changed to meet TrueCrypt's
+ * coding structure including changing some variables and functions.
+ * List of changes that differs from Aleksey Kravchenko's work are:
+ *
+ * Sha3RoundConstants
+ * Sha3Init
+ * Sha3Theta
+ * Sha3Pi
+ * Sha3Chi
+ * Sha3ProcessBlock
+ * SHA3_FINALIZED
+ * Sha3Update
+ * Sha3Final
+ *
+ * Also some definitions have been added in Sha3.h to make sure it works in
+ * TrueCrypt:
+ *
+ * le2me_64(x)
+ * me64_to_le_str
+ * IS_ALIGNED_64
+ * ROTL64
  *
  * Permission is hereby granted,  free of charge,  to any person  obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -36,7 +57,7 @@ static uint64_t Sha3RoundConstants[NumberOfRounds] = {
 	I64(0x8000000080008081), I64(0x8000000000008080), I64(0x0000000080000001), I64(0x8000000080008008)
 };
 
-/* Initializing a sha3 context for given number of output bits */
+/* Initializing a SHA3 context for given number of output bits */
 void Sha3Init(sha3_ctx *ctx)
 {
 	unsigned bits = 256;
@@ -50,7 +71,7 @@ void Sha3Init(sha3_ctx *ctx)
 
 
 
-/* Keccak theta() transformation */
+/* SHA3 theta() transformation */
 static void Sha3Theta(uint64_t *A)
 {
 	unsigned int x;
@@ -74,7 +95,7 @@ static void Sha3Theta(uint64_t *A)
 	}
 }
 
-/* Keccak pi() transformation */
+/* SHA3 pi() transformation */
 static void Sha3Pi(uint64_t *A)
 {
 	uint64_t A1;
@@ -106,7 +127,7 @@ static void Sha3Pi(uint64_t *A)
 	/* note: A[ 0] is left as is */
 }
 
-/* Keccak chi() transformation */
+/* SHA3 chi() transformation */
 static void Sha3Chi(uint64_t *A)
 {
 	int i;
@@ -127,7 +148,7 @@ static void Sha3Permutation(uint64_t *state)
 	{
 		Sha3Theta(state);
 
-		/* apply Keccak rho() transformation */
+		/* apply SHA3 rho() transformation */
 		state[ 1] = ROTL64(state[ 1],  1);
 		state[ 2] = ROTL64(state[ 2], 62);
 		state[ 3] = ROTL64(state[ 3], 28);
