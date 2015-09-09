@@ -51,7 +51,7 @@ namespace TrueCrypt
 
 		virtual void DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const;
 		virtual shared_ptr <Hash> GetHash () const { return shared_ptr <Hash> (new Ripemd160); }
-		virtual int GetIterationCount () const { return 2000; }
+		virtual int GetIterationCount () const { return 200000; }
 		virtual wstring GetName () const { return L"HMAC-RIPEMD-160"; }
 
 	private:
@@ -83,7 +83,7 @@ namespace TrueCrypt
 
 		virtual void DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const;
 		virtual shared_ptr <Hash> GetHash () const { return shared_ptr <Hash> (new Sha1); }
-		virtual int GetIterationCount () const { return 2000; }
+		virtual int GetIterationCount () const { return 200000; }
 		virtual wstring GetName () const { return L"HMAC-SHA-1"; }
 
 	private:
@@ -99,7 +99,7 @@ namespace TrueCrypt
 
 		virtual void DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const;
 		virtual shared_ptr <Hash> GetHash () const { return shared_ptr <Hash> (new Sha512); }
-		virtual int GetIterationCount () const { return 1000; }
+		virtual int GetIterationCount () const { return 100000; }
 		virtual wstring GetName () const { return L"HMAC-SHA-512"; }
 
 	private:
@@ -116,7 +116,7 @@ namespace TrueCrypt
 
 			virtual void DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const;
 			virtual shared_ptr <Hash> GetHash () const { return shared_ptr <Hash> (new Sha3); }
-			virtual int GetIterationCount () const { return 1000; }
+			virtual int GetIterationCount () const { return 100000; }
 			virtual wstring GetName () const { return L"HMAC-SHA-3"; }
 
 		private:
@@ -132,7 +132,7 @@ namespace TrueCrypt
 
 		virtual void DeriveKey (const BufferPtr &key, const VolumePassword &password, const ConstBufferPtr &salt, int iterationCount) const;
 		virtual shared_ptr <Hash> GetHash () const { return shared_ptr <Hash> (new Whirlpool); }
-		virtual int GetIterationCount () const { return 1000; }
+		virtual int GetIterationCount () const { return 100000; }
 		virtual wstring GetName () const { return L"HMAC-Whirlpool"; }
 
 	private:

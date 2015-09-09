@@ -248,7 +248,7 @@ namespace TrueCrypt
 	{
 		Pkcs5KdfList l;
 		
-		l.push_back (shared_ptr <Pkcs5Kdf> (new Pkcs5HmacRipemd160_1000 ()));
+		l.push_back (shared_ptr <Pkcs5Kdf> (new Pkcs5HmacRipemd160_100000 ()));
 		return l;
 	}
 }
