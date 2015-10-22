@@ -1,0 +1,26 @@
+This TrueCrypt is a modified version of TrueCrypt version 7.1a with SHA-3 hash algorithm and increased iteration numbers of PBKDF2 implementations made by Muhammad Ihsan Haikal Sukmana. Full source code of TrueCrypt with SHA-3 can be downloaded and followed at https://github.com/ihsanhaikalz/truecrypt-sha3.
+
+List of source code added or modified in TrueCrypt:
+1. Crypto/Sha3.c and Sha3.h
+2. Crypto/Sources
+3. Common/Random.c and Random.h
+4. Common/Crypto.c
+5. Common/Dlgcode.c
+6. Common/Pkcs5.c and Pkcs5.h
+7. Common/EncryptionThreadPool.c
+8. Common/Tests.c and Tests.h
+9. Common/Volumes.c
+10. Common/EncryptionThreadPool.c
+11. Volume/Pkcs5Kdf.cpp and Pkcs5Kdf.h
+12. Volume/Hash.cpp and Hash.h
+13. Volume/EncryptionTest.cpp
+ 
+
+
+
+
+
+
+
+
+belom kelar

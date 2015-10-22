@@ -1,0 +1,17 @@
+1. Download TrueCrypt version 7.1a's source files from https://www.grc.com/misc/truecrypt/TrueCrypt%207.1a%20Source.tar.gz (TrueCrypt version 7.1a) or https://github.com/ihsanhaikalz/truecrypt-sha3 (TrueCrypt SHA-3) and extract the files into desired installation directory.
+
+2. Create a folder for PKCS\#11's files, download the files and stored it in the folder that has been created by typing these commands into terminal.
+
+mkdir -p $HOME/src/pkcs-11
+wget 'ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11*' -P $HOME/src/pkcs-11
+
+3. Download and install other necessary packages to install TrueCrypt by typing this command into terminal.
+
+sudo apt-get install build-essential nasm libfuse-dev wx-common wx2.8-headers libwxbase2.8-dev libwxsvg-dev libwxgtk2.8-0 libwxgtk2.8-dev libwxgtk2.8-dbg
+
+For Linux version 13.04 or newer, wxWidgets package version 2.8 needs to be downloaded from wxWidget's website and compile it manually.
+
+4. Change the directory to TrueCrypt's directory and make TrueCrypt by typing this command into terminal.
+
+LIBS=-ldl make -j 2 DEBUG=1 DEBUGGER=1 NOSTRIP=1 PKCS11_INC=/home/ihsan/src/pkcs-11/
+

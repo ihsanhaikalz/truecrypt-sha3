@@ -42,4 +42,4 @@ void Sha3Final(sha3_ctx *ctx, unsigned char* result);
 } /* extern "C" */
 #endif /* __cplusplus */
 
-#endif /* Sha3.h */
+#endif /* RHASH_SHA3_H */
